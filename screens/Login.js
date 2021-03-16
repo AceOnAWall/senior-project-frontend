@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Button, View, Text, TextInput, Image, StyleSheet } from 'react-native';
+import validator from 'validator';
 
 function Login() {
   const [value, onChangeUserText] = useState('');
   const [password, onChangePasswordText] = useState('');
+  if (validator.isEmpty(Login.[value, onChangeUserText]) || validator.isEmpty(Login.[password, onChangePasswordText])) {
+    console.log('User Name or Password field is empty');
+  }
+  if (!validator.isAlphanumeric([value, onChangeUserText]) || !validator.isAlphanumeric([password, onChangePasswordText])) {
+    console.log('Please use standard Enlgish characters and numbers only');
+  }
 
   // really basic HTTP request to the EC instance I got going
   const submitInfo = async () => {
